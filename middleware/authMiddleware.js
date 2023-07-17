@@ -10,8 +10,6 @@ dotenv.config();
 const authenticateToken = (req, res, next) => {
     let token = req.headers['authorization'];
 
-    console.log('Received token:', token);
-
     if (!token) {
         return res.status(401).json({ message: 'Authentication failed. Token is missing.' });
     }
@@ -28,8 +26,6 @@ const authenticateToken = (req, res, next) => {
             // Token is invalid or expired
             return res.status(403).json({ message: 'Authentication failed. Invalid token.' });
         }
-
-        console.log("Token is VALID");
 
         // The token is valid
         // You can access the decoded payload here
