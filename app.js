@@ -1,3 +1,4 @@
+const serverless = require("serverless-http");
 require('dotenv').config(); // Load environment variables from .env file
 
 const express = require('express');
@@ -17,3 +18,5 @@ const port = process.env.PORT || 8082;
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
+
+module.exports.handler = serverless(app);
